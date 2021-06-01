@@ -3,7 +3,7 @@ import { Selector, t } from "testcafe";
 class RegisterPage{
     constructor(){
         this.GenderOption = Selector('#id_gender1')
-        this.FirstName = Selector('##customer_firstname')
+        this.FirstName = Selector('#customer_firstname')
         this.LastName = Selector('#customer_lastname')
         this.Email = Selector('#email')
         this.Password = Selector('#passwd')
@@ -13,11 +13,12 @@ class RegisterPage{
         this.AddressFirstName = Selector('#firstname')
         this.AddressLastName = Selector('#lastname')
         this.Address = Selector('#address1')
-        this.City = Selecton('city')
+        this.City = Selector('#city')
+        this.StateDropDown = Selector('#id_state')
         this.AddressState = Selector("select[name='id_state']")
         this.ZipCode = Selector('#postcode')
         this.AddressCountry = Selector("select[name='id_country']")
-        this,MobilePhone = Selector('#phone_mobile')
+        this.MobilePhone = Selector('#phone_mobile')
         this.RegisterButton = Selector('#submitAccount > span');
 
     }
