@@ -28,7 +28,8 @@ const stateSelect = Selector('#id_state');
 const stateOption = stateSelect.find('option');
 const newsletter = Selector('#newsletter');
 const country = Selector('#id_country');
-const signOut = Selector('#header > div.nav > div > div > nav > div:nth-child(2) > a')
+const signOut = Selector('#header > div.nav > div > div > nav > div:nth-child(2) > a');
+const signIn = Selector('#header > div.nav > div > div > nav > div.header_user_info > a');
 
 fixture("Creating new account")
   .page(URL);
@@ -36,7 +37,8 @@ fixture("Creating new account")
     //Authentication page
     test('New account creation', async t => {
         await t
-        .setTestSpeed(0.1)
+        //.wait(3000)
+        //.setTestSpeed(0.1)
         .expect(getURL()).eql(URL)
         .click(SignInLink)
         .expect(getURL()).contains('my-account') 
@@ -48,12 +50,12 @@ fixture("Creating new account")
         .typeText(register.FirstName,FirstName)
         .typeText(register.LastName,LastName)
         .typeText(register.Password,Password)
-        /*.click(daysSelect)
+        .click(daysSelect)
         .click(daysOption.withText('12'))
         .click(monthsSelect)
         .click(monthsOption.withText('June'))
         .click(yearsSelect)
-        .click(yearsOption.withText('2021'))*/
+        .click(yearsOption.withText('1979'))
         .click(newsletter)
         .expect(newsletter.checked).ok()
         .typeText(register.Address,address)
@@ -65,6 +67,13 @@ fixture("Creating new account")
         .typeText(register.MobilePhone,phone)
         .click(register.RegisterButton)
     //Logout
-        .click(signOut);
+        .click(signOut)
+    //Login
+        .click(signIn)
+        .expect(login.AccountHeader.exists).ok()
+        .typeText(login.EmailInput,email)
+        .typeText(login.PasswordInput,Password)
+        .click(login.SignInButton);
 
   });
+  
