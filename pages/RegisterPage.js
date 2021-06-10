@@ -14,6 +14,10 @@ class RegisterPage{
         this.AddressLastName = Selector('#lastname')
         this.Address = Selector('#address1')
         this.City = Selector('#city')
+        this.DateOfBirth = Selector('#uniform-days')
+        this.DaysSelect = Selector('#days')
+        this.MonthsSelect = Selector('#months')
+        this.YearsSelect = Selector('#years')
         this.StateDropDown = Selector('#id_state')
         this.AddressState = Selector("select[name='id_state']")
         this.ZipCode = Selector('#postcode')
@@ -28,9 +32,6 @@ class RegisterPage{
 
     }
 
-    async selectState(state) {
-
-    }
 }
 
 export default new RegisterPage();
