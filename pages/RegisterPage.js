@@ -19,30 +19,18 @@ class RegisterPage{
         this.ZipCode = Selector('#postcode')
         this.AddressCountry = Selector("select[name='id_country']")
         this.MobilePhone = Selector('#phone_mobile')
-        this.RegisterButton = Selector('#submitAccount > span');
+        this.RegisterButton = Selector('#submitAccount > span')
+        this.SignInLink = Selector('#header > div.nav > div > div > nav > div.header_user_info > a')
+        this.StateSelect = Selector('#id_state')
+        this.Country = Selector('#id_country')
+        this.SignOut = Selector('#header > div.nav > div > div > nav > div:nth-child(2) > a')
+        this.SignIn = Selector('#header > div.nav > div > div > nav > div.header_user_info > a');
 
     }
 
-    async selectDay(days){
-        const DaysOption = this.DateOfBirthDayList.find('option')
-        await t
-        .click(this.DateOfBirthDayList)
-        .click(DaysOption.withText(days));
-    }
+    async selectState(state) {
 
-    async selectDay(months){
-        const DaysOption = this.DateOfBirthMonthList.find('option')
-        await t
-        .click(this.DateOfBirthMonthList)
-        .click(DaysOption.withText(months));
     }
-    async selectDay(years){
-        const DaysOption = this.DateOfBirthYearList.find('option')
-        await t
-        .click(this.DateOfBirthYearList)
-        .click(DaysOption.withText(years));
-    }
-
 }
 
 export default new RegisterPage();
