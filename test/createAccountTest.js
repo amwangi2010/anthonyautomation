@@ -8,7 +8,7 @@ import register from '../pages/RegisterPage';
 const URL = 'http://automationpractice.com/index.php';
 const getURL = ClientFunction(() => window.location.href);
 const dataSet = require('../data/data.json');
-var randomNumber = Math.floor(Math.random() * 1000);
+var randomNumber = Math.floor(Math.random() * 10000);
 var email = 'anthony'+randomNumber+'@test.com';
 
 
