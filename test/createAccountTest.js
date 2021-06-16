@@ -3,7 +3,7 @@ import homepage from '../pages/HomePage';
 import login from '../pages/LoginPage';
 import createaccount from '../pages/CreateAccountPage';
 import register from '../pages/RegisterPage';
-
+import checkout from '../pages/CheckoutPage';
 
 const URL = 'http://automationpractice.com/index.php';
 const getURL = ClientFunction(() => window.location.href);
@@ -51,7 +51,7 @@ fixture("Creating new account")
         .expect(login.AccountHeader.exists).ok()
         .typeText(login.EmailInput,email)
         .typeText(login.PasswordInput,data.password)
-        .click(login.SignInButton);
+        .click(login.SignInButton);   
 
   });
 });
