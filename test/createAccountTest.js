@@ -1,57 +1,52 @@
 import { Selector, ClientFunction } from 'testcafe';
-import homepage from '../pages/HomePage';
-import login from '../pages/LoginPage';
-import createaccount from '../pages/CreateAccountPage';
-import register from '../pages/RegisterPage';
-import checkout from '../pages/CheckoutPage';
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import CreateAccountPage from '../pages/CreateAccountPage';
+import RegisterPage from '../pages/RegisterPage';
+import orderData from '../data/data_helper';
+import {envVariables} from '../config/config';
 
-const URL = 'http://automationpractice.com/index.php';
-const getURL = ClientFunction(() => window.location.href);
-const dataSet = require('../data/data.json');
 var randomNumber = Math.floor(Math.random() * 10000);
 var email = 'anthony'+randomNumber+'@test.com';
 
-
 fixture("Creating new account")
-  .page(URL);
+  .page(envVariables.url);
 
     //Authentication page
-    dataSet.forEach(data => {
     test('New account creation', async t => {
-        await t
-        .expect(getURL()).eql(URL)
-        .click(homepage.signInLink)
-        .expect(getURL()).contains('my-account') 
-        .typeText(createaccount.EmailInput,email)
-        .click(createaccount.CreatAccountLink)
-        .expect(getURL()).contains('my-account')
-    //Enter info for new registration
-        .click(register.GenderOption)
-        .typeText(register.FirstName,data.firstname)
-        .typeText(register.LastName,data.lastname)
-        .typeText(register.Password,data.password)
-        .click(register.DaysSelect)
-        .click(register.DaysSelect.find('option').withText('10'))
-        .click(register.MonthsSelect)
-        .click(register.MonthsSelect.find('option').withText('August'))
-        .click(register.YearsSelect)
-        .click(register.YearsSelect.find('option').withText('1979'))
-        .typeText(register.Address,data.address)
-        .typeText(register.City,data.city)
-        .click(register.StateSelect)
-        .click(register.StateSelect.find('option').withText('Georgia'))
-        .typeText(register.ZipCode,data.zipcode)
-        .click(register.Country.withText('United States'))
-        .typeText(register.MobilePhone,data.phone)
-        .click(register.RegisterButton)
-    //Logout
-        .click(register.SignOut)
-    //Login
-        .click(register.SignIn)
-        .expect(login.AccountHeader.exists).ok()
-        .typeText(login.EmailInput,email)
-        .typeText(login.PasswordInput,data.password)
-        .click(login.SignInButton);   
+        console.log(orderData.firstname)
+    //     await t
+    //     .expect(envVariables.getUrl()).eql(envVariables.url)
+    //     .click(HomePage.signInLink)
+    //     .typeText(CreateAccountPage.EmailInput,email)
+    //     .click(CreateAccountPage.CreatAccountLink)
+    
+    // //Enter info for new registration
+    //     .click(RegisterPage.genderOption)
+    //     .typeText(RegisterPage.firstName,orderData.firstname)
+    //     .typeText(RegisterPage.lastName,orderData.lastname)
+    //     .typeText(RegisterPage.Password,orderData.password)
+    //     .click(RegisterPage.daysSelect)
+    //     .click(RegisterPage.daysSelect.find('option').withText('10'))
+    //     .click(RegisterPage.monthsSelect)
+    //     .click(RegisterPage.monthsSelect).find('option').withText('August')
+    //     .click(RegisterPage.yearsSelect)
+    //     .click(RegisterPage.yearsSelect.find('option').withText('1979'))
+    //     .typeText(RegisterPage.Address,orderData.address)
+    //     .typeText(RegisterPage.City,orderData.city)
+    //     .click(RegisterPage.stateDropDown)
+    //     .click(RegisterPage.stateDropDown.find('option').withText('Georgia'))
+    //     .typeText(RegisterPage.zipCode,orderData.zipcode)
+    //     .click(RegisterPage.addressCountry.withText('United States'))
+    //     .typeText(RegisterPage.mobilePhone,orderData.phone)
+    //     .click(RegisterPage.registerButton)
+    // //Logout
+    //     .click(RegisterPage.signOut)
+    // //Login
+    //     .click(RegisterPage.signIn)
+    //     .expect(LoginPage.AccountHeader.exists).ok()
+    //     .typeText(LoginPage.EmailInput,email)
+    //     .typeText(LoginPage.PasswordInput,orderData.password)
+    //     .click(LoginPage.SignInButton);   
 
-  });
-});
+    });

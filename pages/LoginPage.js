@@ -2,10 +2,10 @@ import { Selector, t } from "testcafe";
 
 class LoginPage{
  constructor (){
-    this.EmailInput = Selector('#email')
-    this.PasswordInput = Selector('#passwd');
-    this.SignInButton = Selector('#SubmitLogin > span')
-    this.AccountHeader = Selector('h3').withText('ALREADY REGISTERED');
+    this.emailInput = Selector('#email')
+    this.passwordInput = Selector('#passwd');
+    this.signInButton = Selector('#SubmitLogin > span')
+    this.accountHeader = Selector('h3').withText('ALREADY REGISTERED');
  }
 }
 export default new LoginPage();
