@@ -1,4 +1,5 @@
 import { Selector, t } from "testcafe";
+import { orderData } from "../data/data_helper";
 
 class RegisterPage{
     constructor(){
@@ -31,7 +32,26 @@ class RegisterPage{
         this.signIn = Selector('#header > div.nav > div > div > nav > div.header_user_info > a');
 
     }
-
+    async userInfo(){
+        await t
+        //Enter info for new registration
+        .click(this.genderOption)
+        .typeText(this.firstName,orderData.firstName)
+        .typeText(this.lastName,orderData.lastName)
+        .typeText(this.Password,orderData.password)
+        .typeText(this.Address,orderData.address)
+        .typeText(this.City,orderData.city)
+        .click(this.stateDropDown)
+        .click(this.stateDropDown.find('option').withText('Georgia'))
+        .typeText(this.zipCode,orderData.zipCode)
+        .click(this.addressCountry.withText('United States'))
+        .typeText(this.mobilePhone,orderData.mobilePhone)
+        .click(this.registerButton)
+        //Logout
+        .click(this.signOut)
+        //Login
+        .click(this.signIn)
+     }
 }
 
 export default new RegisterPage();
