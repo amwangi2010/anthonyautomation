@@ -18,6 +18,7 @@ fixture("Creating new account")
         .click(HomePage.signInLink)
         .typeText(CreateAccountPage.EmailInput,email)
         .click(CreateAccountPage.CreatAccountLink)
+        
     //Enter New User Info
         await RegisterPage.userInfo()
     // New User Login

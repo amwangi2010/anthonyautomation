@@ -1,4 +1,4 @@
-import {Selector} from 'testcafe';
+import {Selector, t} from 'testcafe';
 
 class CheckoutPage{
   constructor() {
@@ -15,6 +15,23 @@ class CheckoutPage{
     this.payByCheck = Selector('#HOOK_PAYMENT > div:nth-child(2) > div > p > a')
     this.confirmOrder = Selector('#cart_navigation > button > span')
     this.orderConfirmMessage = Selector('#center_column > p.alert.alert-success').withText('Your order on My Store is complete.');
+  }
+  async orderInfo(){
+    await t
+  .click(this.ordersTab)
+  .click(this.tshirtsTab)
+  .hover(this.shortSleeveShirt)
+  .click(this.addToCart)
+  .click(this.checkoutButton)
+  .click(this.plusIcon)
+  .click(this.proceedToCheckout)
+  .click(this.continueToCheckou)
+  .click(this.termsOfService)
+  .expect(this.termsOfService.checked).ok()
+  .click(this.contToCheckout)
+  .click(this.payByCheck)
+  .click(this.confirmOrder)
+  .expect(this.orderConfirmMessage.exists).ok(); 
   }
 }
 export default new CheckoutPage();

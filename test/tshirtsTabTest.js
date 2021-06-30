@@ -13,6 +13,5 @@ fixture("Getting started")
   test('Click on T-shirts tab', async t => {
     await t
     .expect(getURL()).eql(URL)
-    .click(tabs.tshirtsTab)
-    .expect(getURL()).contains('category');
+    .click(tabs.tshirtsTab);
   });

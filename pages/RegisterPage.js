@@ -50,7 +50,7 @@ class RegisterPage{
         //Logout
         .click(this.signOut)
         //Login
-        .click(this.signIn)
+        .click(this.signIn);
      }
 }
 
