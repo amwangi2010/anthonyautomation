@@ -2,6 +2,7 @@ import register from '../pages/RegisterPage';
 import checkout from '../pages/CheckoutPage';
 import LoginPage from '../pages/LoginPage';
 import { envVariables } from '../config/config';
+import HomePage from '../pages/HomePage';
 
 var randomNumber = Math.floor(Math.random() * 10000);
 var email = 'anthony'+randomNumber+'@test.com';
@@ -16,6 +17,7 @@ fixture("Placing new order")
   await LoginPage.logIn()
 
   // Place Order
+  await HomePage.search('Blouse');
   await checkout.orderInfo();
 
     });

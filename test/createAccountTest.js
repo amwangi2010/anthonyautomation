@@ -4,9 +4,7 @@ import LoginPage from '../pages/LoginPage';
 import CreateAccountPage from '../pages/CreateAccountPage';
 import RegisterPage from '../pages/RegisterPage';
 import {envVariables} from '../config/config';
-
-var randomNumber = Math.floor(Math.random() * 10000);
-var email = 'anthony'+randomNumber+'@test.com';
+import { orderData } from '../data/data_helper';
 
 fixture("Creating new account")
   .page(envVariables.url);
@@ -16,8 +14,8 @@ fixture("Creating new account")
         await t
         .expect(envVariables.getUrl()).eql(envVariables.url)
         .click(HomePage.signInLink)
-        .typeText(CreateAccountPage.EmailInput,email)
-        .click(CreateAccountPage.CreatAccountLink)
+        .typeText(CreateAccountPage.emailInput,orderData.emailAddress)
+        .click(CreateAccountPage.creatAccountLink)
         
     //Enter New User Info
         await RegisterPage.userInfo()
