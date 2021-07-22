@@ -3,9 +3,8 @@ import checkout from '../pages/CheckoutPage';
 import LoginPage from '../pages/LoginPage';
 import { envVariables } from '../config/config';
 import HomePage from '../pages/HomePage';
+import { orderData } from '../data/data_helper';
 
-var randomNumber = Math.floor(Math.random() * 10000);
-var email = 'anthony'+randomNumber+'@test.com';
 
 fixture("Placing new order")
   .page(envVariables.url);
