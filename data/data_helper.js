@@ -9,7 +9,7 @@ export const orderData =
     zipCode: "30003",
     city: "Decatur",
     mobilePhone: "7703258000",
-    randomNumber: "Math.floor(Math.random() * 10000)",
-    emailAddress: "anthony'+randomNumber+'@test.com",
+    randomNumber: "Math.floor(Math.random() * 1000000)",
+    emailAddress: "tpneb'+randomNumber+'@test.com",
     qty: "2"
 };
